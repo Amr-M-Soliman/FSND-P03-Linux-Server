@@ -133,60 +133,60 @@ sudo ufw enable
     8. Install restful: 
         `sudo pip install flask-restful`
 4. #### Install and configure PostgreSQL
- 1. Install PostgreSQL `sudo apt-get install postgresql`
- 2. Check if no remote connections are allowed `sudo vim /etc/postgresql/9.3/main/pg_hba.conf`
- 3. Login as user "postgres" `sudo su - postgres`
- 4. Get into postgreSQL shell using `psql`
- 5. Create a new database named catalog  and create a new user named catalog in postgreSQL shell
+    1. Install PostgreSQL `sudo apt-get install postgresql`
+    2. Check if no remote connections are allowed `sudo vim /etc/postgresql/9.3/main/pg_hba.conf`
+    3. Login as user "postgres" `sudo su - postgres`
+    4. Get into postgreSQL shell using `psql`
+    5. Create a new database named catalog  and create a new user named catalog in postgreSQL shell
 	
-	```
-	postgres=# CREATE DATABASE catalog;
-	postgres=# CREATE USER catalog;
-	```
- 5. Set a password for user catalog
+	   ```
+	   postgres=# CREATE DATABASE catalog;
+	   postgres=# CREATE USER catalog;
+	   ```
+    6. Set a password for user catalog
 	
-	```
-	postgres=# ALTER ROLE catalog WITH PASSWORD 'password';
-	```
- 6. Give user "catalog" permission to "catalog" application database
+	   ```
+	   postgres=# ALTER ROLE catalog WITH PASSWORD 'password';
+	   ```
+    7. Give user "catalog" permission to "catalog" application database
 	
-	```
-	postgres=# GRANT ALL PRIVILEGES ON DATABASE catalog TO catalog;
-	```
- 7. Quit postgreSQL `postgres=# \q`
- 8. Exit from user "postgres" 
+	   ```
+	   postgres=# GRANT ALL PRIVILEGES ON DATABASE catalog TO catalog;
+	   ```
+    7. Quit postgreSQL `postgres=# \q`
+    8. Exit from user "postgres" 
 	
-	```
-	exit
-	```
+	   ```
+	   exit
+	   ```
     
 5. #### Install git, clone and setup CatalogApp project.
- 1. Install Git using `sudo apt-get install git`
- 2. Use `cd /var/www` to move to the /var/www directory 
- 3. Clone the Catalog App to the virtual machine `git clone https://github.com/Amr-M-Soliman/FSND-P03-Linux.git`
- 4. Rename the project's name `sudo mv ./FSND-P03-Linux-master ./catalogApp`
- 5. Edit `module.py` and `__init__.py`(in *myproject* dir) and change `engine = create_engine('sqlite:///itemcatalog.db')`
-    to `engine = create_engine('postgresql://catalog:password@localhost/catalog')`
+    1. Install Git using `sudo apt-get install git`
+    2. Use `cd /var/www` to move to the /var/www directory 
+    3. Clone the Catalog App to the virtual machine `git clone https://github.com/Amr-M-Soliman/FSND-P03-Linux.git`
+    4. Rename the project's name `sudo mv ./FSND-P03-Linux-master ./catalogApp`
+    5. Edit `module.py` and `__init__.py`(in *myproject* dir) and change `engine = create_engine('sqlite:///itemcatalog.db')`
+       to `engine = create_engine('postgresql://catalog:password@localhost/catalog')`
 6. #### Create a .wsgi file
-  1. Create the .wsgi File under /var/www/FlaskApp: 
+    1. Create the .wsgi File under /var/www/FlaskApp: 
 	
-	```
-	cd /var/www/catalogApp
-	sudo nano catalogapp.wsgi 
-	```
-  2. Add the following lines of code to the catalogapp.wsgi file:
+	   ```
+	   cd /var/www/catalogApp
+	   sudo nano catalogapp.wsgi 
+	   ```
+     2. Add the following lines of code to the catalogapp.wsgi file:
 	
-    ```
-    #!/usr/bin/python
-    import sys
-    import logging
-    logging.basicConfig(stream=sys.stderr)
-    sys.path.insert(0,"/var/www/catalogApp/")
+       ```
+       #!/usr/bin/python
+       import sys
+       import logging
+       logging.basicConfig(stream=sys.stderr)
+       sys.path.insert(0,"/var/www/catalogApp/")
 
-    from myproject import app as application
-    application.secret_key = [your_secret_key]
+       from myproject import app as application
+       application.secret_key = [your_secret_key]
 
-    ```
+       ```
     
 ### Configure and Enable Virtual Host
 1. Use `sudo nano /etc/apache2/sites-enabled/000-default.conf`
