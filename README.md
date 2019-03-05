@@ -66,7 +66,7 @@ A baseline installation of Ubuntu Linux on a virtual machine to host a Flask web
 	```
     ssh -i <privateKeyFilename> grader@3.8.140.233 -p 2200 -i ~/.ssh/<sshKeyFilename>
     ```
-### Disable ssh login for *root* user
+## Disable ssh login for *root* user
 1. `sudo nano /etc/ssh/sshd_config`
 2. Find the *PermitRootLogin* line and edit it to *no*.
 3. `sudo service ssh restart`.
@@ -168,7 +168,7 @@ sudo ufw enable
  5. Edit `module.py` and `__init__.py`(in *myproject* dir) and change `engine = create_engine('sqlite:///itemcatalog.db')`
     to `engine = create_engine('postgresql://catalog:password@localhost/catalog')`
 6. #### Create a .wsgi file
- 1. Create the .wsgi File under /var/www/FlaskApp: 
+  1. Create the .wsgi File under /var/www/FlaskApp: 
 	
 	```
 	cd /var/www/catalogApp
