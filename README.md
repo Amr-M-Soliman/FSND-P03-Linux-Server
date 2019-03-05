@@ -20,7 +20,7 @@ A baseline installation of Ubuntu Linux on a virtual machine to host a Flask web
  
 
 ### Change SSH port from 22 to 2200
- 1. Download Private Key below
+ 1. Download Private Key
  2. Move the private key file into the folder `~/.ssh`
  3. Run `sudo nano /etc/ssh/sshd_config`
  4. Change the port from 22 to 2200
@@ -71,7 +71,7 @@ A baseline installation of Ubuntu Linux on a virtual machine to host a Flask web
 2. Find the *PermitRootLogin* line and edit it to *no*.
 3. `sudo service ssh restart`.
 
-### Configure the Uncomplicated Firewall (UFW)
+### Configure the Firewall (UFW)
 
 Project requirements need the server to only allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123).
 
@@ -115,7 +115,7 @@ sudo ufw enable
 1. Install Apache `sudo apt-get install apache2`
 2. Install mod_wsgi `sudo apt-get install python-setuptools libapache2-mod-wsgi`
 3. Restart Apache `sudo service apache2 restart`
-4. ####Install needed modules & packages
+4. #### Install needed modules & packages
     1. Install pip:
     `$ sudo apt-get install python-pip`
     2. Install httplib2:  
@@ -132,7 +132,7 @@ sudo ufw enable
     `$ sudo apt-get install python-psycopg2`
     8. Install restful: 
         `sudo pip install flask-restful`
-4. ####Install and configure PostgreSQL
+4. #### Install and configure PostgreSQL
  1. Install PostgreSQL `sudo apt-get install postgresql`
  2. Check if no remote connections are allowed `sudo vim /etc/postgresql/9.3/main/pg_hba.conf`
  3. Login as user "postgres" `sudo su - postgres`
@@ -160,14 +160,14 @@ sudo ufw enable
 	exit
 	```
     
-5. ####Install git, clone and setup CatalogApp project.
+5. #### Install git, clone and setup CatalogApp project.
  1. Install Git using `sudo apt-get install git`
  2. Use `cd /var/www` to move to the /var/www directory 
  3. Clone the Catalog App to the virtual machine `git clone https://github.com/Amr-M-Soliman/FSND-P03-Linux.git`
  4. Rename the project's name `sudo mv ./FSND-P03-Linux-master ./catalogApp`
- 5. Edit `module.py` and `__init__.py`(in *myproject* dir) and change `engine = create_engine('sqlite:///itemcatalog.db')
- ` to `engine = create_engine('postgresql://catalog:password@localhost/catalog')`
-6. ####Create a .wsgi file
+ 5. Edit `module.py` and `__init__.py`(in *myproject* dir) and change `engine = create_engine('sqlite:///itemcatalog.db')`
+    to `engine = create_engine('postgresql://catalog:password@localhost/catalog')`
+6. #### Create a .wsgi file
  1. Create the .wsgi File under /var/www/FlaskApp: 
 	
 	```
