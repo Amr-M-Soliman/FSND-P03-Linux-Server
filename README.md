@@ -190,7 +190,6 @@ sudo ufw enable
 	```
 	exit
 	```
-    
 5. #### Install git, clone and setup CatalogApp project.
  1. Install Git using `sudo apt-get install git`
  2. Use `cd /var/www` to move to the /var/www directory 
