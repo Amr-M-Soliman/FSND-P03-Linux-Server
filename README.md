@@ -192,14 +192,14 @@ sudo ufw enable
 	```
     
 5. #### Install git, clone and setup CatalogApp project.
- 1. Install Git using `sudo apt-get install git`
- 2. Use `cd /var/www` to move to the /var/www directory 
- 3. Clone the Catalog App to the virtual machine `git clone https://github.com/Amr-M-Soliman/FSND-P03-Linux.git`
- 4. Rename the project's name `sudo mv ./FSND-P03-Linux-master ./catalogApp`
- 5. Edit `module.py` and `__init__.py`(in *myproject* dir) and change `engine = create_engine('sqlite:///itemcatalog.db')
- ` to `engine = create_engine('postgresql://catalog:password@localhost/catalog')`
+  1. Install Git using `sudo apt-get install git`
+  2. Use `cd /var/www` to move to the /var/www directory 
+  3. Clone the Catalog App to the virtual machine `git clone https://github.com/Amr-M-Soliman/FSND-P03-Linux.git`
+  4. Rename the project's name `sudo mv ./FSND-P03-Linux-master ./catalogApp`
+  5. Edit `module.py` and `__init__.py`(in *myproject* dir) and change `engine = create_engine('sqlite:///itemcatalog.db')`
+   to `engine = create_engine('postgresql://catalog:password@localhost/catalog')`
 6. #### Create a .wsgi file
- 1. Create the .wsgi File under /var/www/FlaskApp: 
+  1. Create the .wsgi File under /var/www/FlaskApp: 
 	
 	```
 	cd /var/www/catalogApp
