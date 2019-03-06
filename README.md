@@ -80,7 +80,7 @@ A baseline installation of Ubuntu Linux on a virtual machine to host a Flask web
     ssh -i <privateKeyFilename> grader@3.8.140.233 -p 2200 -i ~/.ssh/<sshKeyFilename>
     ```
     
-### Source ###
+#### Source ####
 * [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server)
 
 ### Disable ssh login for *root* user
@@ -218,10 +218,12 @@ sudo ufw enable
     application.secret_key = [your_secret_key]
 
     ```
+
 #### Source ####
-. Setting up githup [GitHub](https://help.github.com/en/articles/set-up-git#platform-linux)
-. Deploying a flask app [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
-. Securing Postgresql [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps)
+* Setting up githup [GitHub](https://help.github.com/en/articles/set-up-git#platform-linux)
+* Deploying a flask app [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
+* Securing Postgresql [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps)
+
     
 ### Configure and Enable Virtual Host
 1. Use `sudo nano /etc/apache2/sites-enabled/000-default.conf`
