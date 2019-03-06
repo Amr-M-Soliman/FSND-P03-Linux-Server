@@ -80,7 +80,7 @@ A baseline installation of Ubuntu Linux on a virtual machine to host a Flask web
     ssh -i <privateKeyFilename> grader@3.8.140.233 -p 2200 -i ~/.ssh/<sshKeyFilename>
     ```
     
-#### Source ####
+### Source ###
 * [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server)
 
 ### Disable ssh login for *root* user
@@ -192,14 +192,14 @@ sudo ufw enable
 	```
     
 5. #### Install git, clone and setup CatalogApp project.
-  1. Install Git using `sudo apt-get install git`
-  2. Use `cd /var/www` to move to the /var/www directory 
-  3. Clone the Catalog App to the virtual machine `git clone https://github.com/Amr-M-Soliman/FSND-P03-Linux.git`
-  4. Rename the project's name `sudo mv ./FSND-P03-Linux-master ./catalogApp`
-  5. Edit `module.py` and `__init__.py`(in *myproject* dir) and change `engine = create_engine('sqlite:///itemcatalog.db')`
-   to `engine = create_engine('postgresql://catalog:password@localhost/catalog')`
+ 1. Install Git using `sudo apt-get install git`
+ 2. Use `cd /var/www` to move to the /var/www directory 
+ 3. Clone the Catalog App to the virtual machine `git clone https://github.com/Amr-M-Soliman/FSND-P03-Linux.git`
+ 4. Rename the project's name `sudo mv ./FSND-P03-Linux-master ./catalogApp`
+ 5. Edit `module.py` and `__init__.py`(in *myproject* dir) and change `engine = create_engine('sqlite:///itemcatalog.db')
+ ` to `engine = create_engine('postgresql://catalog:password@localhost/catalog')`
 6. #### Create a .wsgi file
-  1. Create the .wsgi File under /var/www/FlaskApp: 
+ 1. Create the .wsgi File under /var/www/FlaskApp: 
 	
 	```
 	cd /var/www/catalogApp
@@ -223,7 +223,6 @@ sudo ufw enable
 * Setting up githup [GitHub](https://help.github.com/en/articles/set-up-git#platform-linux)
 * Deploying a flask app [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
 * Securing Postgresql [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps)
-
     
 ### Configure and Enable Virtual Host
 1. Use `sudo nano /etc/apache2/sites-enabled/000-default.conf`
